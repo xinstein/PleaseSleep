@@ -50,7 +50,7 @@ This is nessecary for some commands that need root permissions.
 
 To remove it, type:
 ```bash
-/PleaseSleep remove
+./PleaseSleep remove
 ```
 
 If you get an error when executing the PleaseSleep file such as permission denied, or file not executable, you might have to chmod the file. simply type the following command and it should work:
