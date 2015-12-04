@@ -1,7 +1,4 @@
-# PleaseSleep
-
-
-# Macbook Pro Retina 2015 Force Touch - Sleep Fix
+# Mac: PleaseSleep
 
 ### What is this?
 
