@@ -50,7 +50,7 @@ This is nessecary for some commands that need root permissions.
 
 Please note that you must have brew installed. If not, open the Terminal app and enter the following command:
 ```bash
-https://github.com/Homebrew/homebrew/tree/master/Library/Formula
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 source: http://brew.sh
 
