@@ -48,6 +48,10 @@ To install it, open the terminal, go to the folder of the script and type:
 When the script asks for your password, you have to enter it in the Terminal.
 This is nessecary for some commands that need root permissions.
 
+Please note that you must have brew installed. If not, open the Terminal app and enter the following command:
+```https://github.com/Homebrew/homebrew/tree/master/Library/Formula```
+source: http://brew.sh
+
 To remove it, type:
 ```bash
 ./PleaseSleep remove
