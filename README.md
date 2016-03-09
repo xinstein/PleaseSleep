@@ -4,6 +4,7 @@
 
 When installed, this tool will disable WiFi when your Mac goes to sleep. WiFi will
 be enabled again when your Mac wakes up again.
+You can find more information on my website: https://kevindekoninck.com/portfolio-item/pleasesleep/
 
 ### Why is this usefull?
 
