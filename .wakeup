@@ -1,0 +1,6 @@
+#! /bin/bash
+echo
+echo `date` "Wake script:" "Waking up" >> /tmp/sleep.log
+sleep 7
+/usr/sbin/networksetup setairportpower en0 on
+echo `date` "Wake script:" `/usr/sbin/networksetup getairportpower en0` >> /tmp/sleep.log

@@ -43,20 +43,16 @@ then
 	echo "Removing sleep and wake scripts ..."
 	rm ~/.sleep &> /dev/null
 	rm ~/.wakeup &> /dev/null
+    rm -rf ~/Desktop/BadNetwork.app &> /dev/null
+    rm ~/.badwifinetworks &> /dev/null
 	echo "Done."
 	echo "(Press ENTER key to continue.)"
 	read
 	echo
 
 	echo "Removing Sleepwatcher 2.2 and all the files ..."
-	sudo rm -r /usr/local/Cellar/sleepwatcher &> /dev/null
-	sudo rm -r /usr/local/etc/sleepwatcher &> /dev/null
-	sudo rm ~/Library/LaunchAgents/de.bernhard-baehr.sleepwatcher-20compatibility-localuser.plist &> /dev/null
-  	#sudo rm /usr/local/share/man/man8/sleepwatcher.8 &> /dev/null
-  	#sudo rm /etc/rc.sleep &> /dev/null
-  	#sudo rm /etc/rc.wakeup &> /dev/null
-  	#sudo rm -r /Library/StartupItems/SleepWatcher &> /dev/null
-	sudo rm /usr/local/sbin/sleepwatcher &> /dev/null
+	brew uninstall sleepwatcher
+    brew cleanup
 
 	echo "Done."
 	echo "(Press ENTER key to continue.)"
@@ -105,32 +101,19 @@ then
 	read
 	echo
 
-	echo "Creating the sleep script ..."
-		touch ~/.sleep
-		chmod u+x ~/.sleep
-		echo "#! /bin/bash" > ~/.sleep
-		echo "echo" >> ~/.sleep
-		echo "echo `date` \"Sleeping\" >> /tmp/sleep.log" >> ~/.sleep
-		echo "/usr/sbin/networksetup setairportpower en0 off" >> ~/.sleep
-		echo "echo `date` `/usr/sbin/networksetup getairportpower en0` >> /tmp/sleep.log" >> ~/.sleep
+	echo "Creating the sleep/wake script ..."
+        cp {.wakeup,.sleep} ~/
+				chmod u+x ~/{.wakeup,.sleep}
 	echo "Done."
 	echo "(Press ENTER key to continue.)"
 	read
 	echo
 
-	echo "Creating the wake script ..."
-		touch ~/.wakeup
-		chmod u+x ~/.wakeup
-		echo "#! /bin/bash" > ~/.wakeup
-		echo "echo" >> ~/.wakeup
-		echo "echo `date` \"Waking up\" >> /tmp/sleep.log" >> ~/.wakeup
-		echo "sleep 7" >> ~/.wakeup
-		echo "/usr/sbin/networksetup setairportpower en0 on" >> ~/.wakeup
-		echo "echo `date` `/usr/sbin/networksetup getairportpower en0` >> /tmp/sleep.log" >> ~/.wakeup
-	echo "Done."
-	echo "(Press ENTER key to continue.)"
-	read
-	echo
+
+
+    touch ~/.badwifinetworks
+    unzip automator.zip BadNetwork.app/* -d ~/Desktop
+
 
 	echo "Copying *.plist file to ~/Library/LaunchAgents ..."
 	cp /usr/local/Cellar/sleepwatcher/2.2/de.bernhard-baehr.sleepwatcher-20compatibility-localuser.plist ~/Library/LaunchAgents

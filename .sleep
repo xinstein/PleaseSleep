@@ -1,0 +1,19 @@
+#! /bin/bash
+ison=$(networksetup -getairportpower en0 | grep On)
+if [ ${#ison} = 0 ]
+then
+	echo `date` "Sleep script:" "wifi is off, will remain off" >> /tmp/sleep.log
+else
+	curnet=$(networksetup -getairportnetwork en0)
+	curnet=${curnet#*:}
+	curnet=$(echo $curnet)
+	searchd=$(grep ^$curnet$ ~/.badwifinetworks)
+	if [ ${#searchd} -gt 0 ] 
+	then 
+		echo `date` "Sleep script:" "Bad network connected, turning wifi off to prevent DarkWakes" >> /tmp/sleep.log
+		/usr/sbin/networksetup setairportpower en0 off
+		echo `date` "Sleep script:" `/usr/sbin/networksetup getairportpower en0` >> /tmp/sleep.log
+	else
+		echo `date` "Sleep script:" "Wifi network is not bad, will be left on." >> /tmp/sleep.log
+	fi
+fi
