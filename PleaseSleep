@@ -87,7 +87,7 @@ then
 
 	echo "Gaining permissions for /usr/local ..."
 	# source: https://github.com/Homebrew/homebrew/blob/master/share/doc/homebrew/El_Capitan_and_Homebrew.md
-	sudo chown -R $(whoami):admin /usr/local
+	sudo chown -R $(whoami):admin /usr/local/*
 	echo "Done."
 	echo "(Press ENTER key to continue.)"
 	read
