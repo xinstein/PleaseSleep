@@ -23,7 +23,7 @@ elif [ "$ARG" == "remove" ] || [ "$ARG" == "uninstall" ]
 then
 	echo
 	echo
-	echo "REMOVING PleaseSleep with sleepwatcher 2.2"
+	echo "REMOVING PleaseSleep with sleepwatcher 2.2.1"
 	echo "This will remove all PleaseSleep AND all Sleepwatcher files."
 	echo "This also includes the sleep and wake scripts."
 	echo
@@ -48,7 +48,7 @@ then
 	read
 	echo
 
-	echo "Removing Sleepwatcher 2.2 and all the files ..."
+	echo "Removing Sleepwatcher 2.2.1 and all the files ..."
 	sudo rm -r /usr/local/Cellar/sleepwatcher &> /dev/null
 	sudo rm -r /usr/local/etc/sleepwatcher &> /dev/null
 	sudo rm ~/Library/LaunchAgents/de.bernhard-baehr.sleepwatcher-20compatibility-localuser.plist &> /dev/null
@@ -66,7 +66,7 @@ then
 	echo "-------------------------------------------------------------------"
 	echo
 
-	echo "PleaseSleep and Sleepwatcher 2.2 are successfully removed from your lovely Mac!!"
+	echo "PleaseSleep and Sleepwatcher 2.2.1 are successfully removed from your lovely Mac!!"
 	echo
 	echo
 	echo
@@ -77,7 +77,7 @@ elif [ "$1" == "install" ]
 then
 	echo
 	echo
-	echo "INSTALLING PleaseSleep with sleepwatcher 2.2"
+	echo "INSTALLING PleaseSleep with sleepwatcher 2.2.1"
 	echo
 	echo "Are you sure you want to continue?"
 	echo "Press Enter to continue or Crtl+c to quit"
@@ -93,12 +93,12 @@ then
 	read
 	echo
 
-	echo "Installing Sleepwatcher 2.2 (using the brew command)."
+	echo "Installing Sleepwatcher 2.2.1 (using the brew command)."
 	echo "Please follow the instructions when prompted ..."
 	echo "(Press ENTER key to continue.)"
 	read
 	echo
-	brew install sleepwatcher --quiet
+	brew install sleepwatcher
 	echo
 	echo
 	echo "(Press ENTER key to continue.)"
@@ -133,7 +133,7 @@ then
 	echo
 
 	echo "Copying *.plist file to ~/Library/LaunchAgents ..."
-	cp /usr/local/Cellar/sleepwatcher/2.2/de.bernhard-baehr.sleepwatcher-20compatibility-localuser.plist ~/Library/LaunchAgents
+	cp /usr/local/Cellar/sleepwatcher/2.2.1.1/de.bernhard-baehr.sleepwatcher-20compatibility-localuser.plist ~/Library/LaunchAgents
 	echo "Done."
 	echo "(Press ENTER key to continue.)"
 	read
